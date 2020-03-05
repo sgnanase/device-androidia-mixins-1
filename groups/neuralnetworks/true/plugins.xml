@@ -1,0 +1,8 @@
+<ie>
+    <plugins>
+        <plugin name="CPU" location="/vendor/lib64/libMKLDNNPlugin.so">
+        </plugin>
+        <plugin name="MYRIAD" location="/vendor/lib64/libmyriadPlugin.so">
+        </plugin>
+    </plugins>
+</ie>

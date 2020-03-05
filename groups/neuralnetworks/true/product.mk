@@ -13,3 +13,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     graphtest_cpu
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/{{_extra_dir}}/plugins.xml:vendor/etc/neuralnetworks/plugins.xml
