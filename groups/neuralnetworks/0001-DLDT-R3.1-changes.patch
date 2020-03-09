@@ -1,0 +1,49 @@
+From 7dbdf9bab5908c1ab93f01f69c7a9f9f1123dc70 Mon Sep 17 00:00:00 2001
+From: Jeevaka Prabu Badrappan <jeevaka.badrappan@intel.com>
+Date: Thu, 5 Mar 2020 15:02:12 +0530
+Subject: [PATCH] DLDT R3.1 changes
+
+---
+ groups/neuralnetworks/true/files.spec  | 2 ++
+ groups/neuralnetworks/true/plugins.xml | 8 ++++++++
+ groups/neuralnetworks/true/product.mk  | 3 +++
+ 3 files changed, 13 insertions(+)
+ create mode 100644 groups/neuralnetworks/true/files.spec
+ create mode 100644 groups/neuralnetworks/true/plugins.xml
+
+diff --git a/groups/neuralnetworks/true/files.spec b/groups/neuralnetworks/true/files.spec
+new file mode 100644
+index 0000000..04f07fb
+--- /dev/null
++++ b/groups/neuralnetworks/true/files.spec
+@@ -0,0 +1,2 @@
++[extrafiles]
++plugins.xml: "openvino plugins path configuration"
+diff --git a/groups/neuralnetworks/true/plugins.xml b/groups/neuralnetworks/true/plugins.xml
+new file mode 100644
+index 0000000..15e41f3
+--- /dev/null
++++ b/groups/neuralnetworks/true/plugins.xml
+@@ -0,0 +1,8 @@
++<ie>
++    <plugins>
++        <plugin name="CPU" location="/vendor/lib64/libMKLDNNPlugin.so">
++        </plugin>
++        <plugin name="MYRIAD" location="/vendor/lib64/libmyriadPlugin.so">
++        </plugin>
++    </plugins>
++</ie>
+diff --git a/groups/neuralnetworks/true/product.mk b/groups/neuralnetworks/true/product.mk
+index d360e65..e06d49c 100644
+--- a/groups/neuralnetworks/true/product.mk
++++ b/groups/neuralnetworks/true/product.mk
+@@ -13,3 +13,6 @@ PRODUCT_PACKAGES += \
+ 
+ PRODUCT_PACKAGES += \
+     graphtest_cpu
++
++PRODUCT_COPY_FILES += \
++    $(LOCAL_PATH)/{{_extra_dir}}/plugins.xml:vendor/etc/neuralnetworks/plugins.xml
+-- 
+2.17.1
+
